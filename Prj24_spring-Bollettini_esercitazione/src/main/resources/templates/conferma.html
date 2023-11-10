@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Pagamento Bollettino - Conferma</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+    <h1>Pagamento Bollettino - Conferma</h1>
+    <p>Pagamento avvenuto con successo!</p>
+    <p>Dati del bollettino:</p>
+    <p>Conto Corrente: <span th:text="${bollettino.conto.id}"></span></p>
+    <p>Codice Bollettino: <span th:text="${bollettino.id}"></span></p>
+    <p>Causale: <span th:text="${bollettino.causale}"></span></p>
+    <p>Importo: <span th:text="${bollettino.importo} + ' EUR'"></span></p>
+    <p>Nome e Cognome: <span th:text="${bollettino.nomePagatore}"></span></p>
+    <p>Numero Carta di Credito: <span th:text="${bollettino.numeroCartaCredito}"></span></p>
+    
+  	 <a href="/index" class="button">Nuovo pagamento</a>
+     <a href="/uscita" class="button">Uscita</a>
+</body>
+</html>

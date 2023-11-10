@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Pagamento Bollettino - Conferma</title>
+    <link rel="stylesheet" type="text/css" href="/path/to/style.css">
+</head>
+<body>
+    <h1>Pagamento Bollettino - Confer</h1>
+    <p>Conto Corrente: <span id="contoCorrente"></span></p>
+    <p>Codice Bollettino: <span id="codiceBollettino"></span></p>
+    <p>Causale: <span id="causale"></span></p>
+    <p>Importo: <span id="importo"></span></p>
+    
+    <form action="/pagamento" method="post">
+        <label for="nomeCognome">Nome e Cognome:</label>
+        <input type="text" id="nomeCognome" name="nomeCognome" required>
+        
+        <label for="numeroCarta">Numero Carta di Credito:</label>
+        <input type="text" id="numeroCarta" name="numeroCarta" required>
+        
+        <input type="submit" value="Conferma">
+    </form>
+    
+    <a href="/index">Torna alla pagina iniziale</a>
+    <a href="/uscita">Uscita</a>
+    
+    <script>
+        // Recupera i valori dei parametri dall'URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const contoCorrente = urlParams.get('contoCorrente');
+        const codiceBollettino = urlParams.get('codiceBollettino');
+        const causale = urlParams.get('causale');
+        const importo = urlParams.get('importo');
+        
+        // Aggiorna i valori nei rispettivi elementi HTML
+        document.getElementById("contoCorrente").textContent = contoCorrente;
+        document.getElementById("codiceBollettino").textContent = codiceBollettino;
+        document.getElementById("causale").textContent = causale;
+        document.getElementById("importo").textContent = importo;
+    </script>
+</body>
+</html>
