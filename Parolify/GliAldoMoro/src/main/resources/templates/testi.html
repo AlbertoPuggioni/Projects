@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<meta charset="UTF-8">
+<title>Testi Salvati</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"/>
+<link th:href="@{/css/testi.css}" rel="stylesheet" />
+<link rel="icon" th:href="@{/img/parolfy.png}">
+</head>
+<body>
+
+<div class="container">
+<div th:each="testo : ${testi}" class="card">
+  <div id="txt" class="card-body">
+    <h5 class="card-title" th:text="${testo.id}"></h5>
+    <p class="card-text" th:text="${testo.txt}"></p>
+  </div>
+  <ul class="list-group list-group-flush">
+    <li th:text="${'Numero frasi: ' + testo.numeroFrasi}" class="list-group-item"></li>
+    <li th:text="${'Numero parole: ' + testo.numeroParole}" class="list-group-item"></li>
+    <li th:text="${'Frase più lunga: ' + testo.FrasePiuLunga}" id="frase-piu" class="list-group-item"></li>
+    <li th:text="${'Parola più lunga: ' + testo.parolaPiuLunga}" class="list-group-item"></li>
+    <li th:text="${'Parola più usata: ' + testo.parolaPiuUsata}" class="list-group-item"></li>
+  </ul>
+  <div class="card-body">
+    <a th:href="@{'/testi/' + ${testo.id}}">view</a>
+  </div>
+</div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</body>
+
+</html>

@@ -1,0 +1,225 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap");
+
+:root {
+    --primary:#fff;
+    --black:#202020;
+    --transparent: rgba(255, 255, 255, 0.7);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    z-index: 1;
+}
+
+body {
+    background-color: var(--black);
+    color: var(--primary);
+    font-family: "Poppins", sans-serif;
+    background-image: url("../img/wallpaper.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100%; 
+}
+
+a {
+    text-decoration: none;
+}
+
+.card{
+	overflow: scroll;
+}
+
+textarea {
+    resize: none;
+    border-radius: 10px;
+    opacity: 0.4;
+}
+
+.shadow {    
+    -webkit-filter: drop-shadow(1px 1px 10px var(--black));
+    filter: drop-shadow(1px 1px 10px var(--black));
+}
+
+button{
+	position: relative;
+	top: 50px;
+	right: 320px;
+}
+
+/*navbar*/
+
+.navbar {
+    max-width: 1800px;
+    padding: 20px;  
+    font-size: 18px;
+    justify-content: space-between;
+    align-items: center;
+    margin: auto;
+    display: flex;
+}
+
+.navbar-left {
+    transform: translate(-26% ,0);
+}
+.navbar-left img {
+    width: 200px;   
+    transition: transform 2s linear;   
+    animation-name: FadeIn-bottom;
+    animation-duration: 2s;
+}
+.navbar-left img:hover{
+    cursor: pointer;
+}
+.navbar-right:hover > :not(:hover) {
+    opacity: 0.7;
+    transform: scale(0.8);
+}
+.navbar-right svg {
+    width: 42px;
+    height: 42px;
+    padding-left: 15px;
+    text-decoration: none;
+    transition: 0.35s;
+    cursor: pointer;  
+}
+
+
+/*center*/
+
+.center {
+    display: flex;
+    position: absolute;
+    align-items: center;
+    justify-content: center;
+    left: 50%;
+    top: 50%;
+    transform: translate(-49%, -50%);
+    animation-name: FadeIn;
+    animation-duration: 5s;
+}
+.center img {
+    width: 700px;
+}
+
+.results {
+    padding: 12px;
+    border: 2.5px solid var(--primary);
+    border-radius: 5px;
+    text-align: center;
+}
+.results:hover {
+    cursor: pointer;
+    color: var(--transparent);
+    border-color: var(--transparent);
+}
+
+
+/*footer*/
+
+.footer {
+    padding: 20px;  
+    font-size: 15px;
+    justify-content: space-between;
+    display: flex;
+    position: absolute;
+    bottom: 40px;
+    right: -0px;
+    left: 30px;
+}
+
+.location {
+    padding-top: 15px;
+}
+.location span {
+    color: var(--transparent);
+    line-height: 22px;
+}
+.location svg {
+    height: 22px;
+    float: left;
+    margin-right: 10px;
+    animation: location-rotate 2s ease-in-out;
+    animation-iteration-count: infinite;
+}
+
+.credit {
+    display: flex;
+    color: var(--transparent);
+    transition: transform .5s linear;
+    overflow: hidden;
+    padding-top: 15px;
+}
+.credit:hover {
+    cursor: pointer;
+}
+.credit span {
+    padding-left: 0.21em;
+}
+.credit:hover .credit-c {
+    transition: 0.5s;
+    -webkit-transition: 0.5s;
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+}
+.credit:hover .credit-code-by {
+    transition: 0.5s;
+    -webkit-transition: 0.5s;
+    transform: translate(-115%,0);
+    opacity: 0;
+}
+.credit:hover .credit-name {
+    transition: 0.7s;
+    -webkit-transition: 0.7s;
+    transform: translate(-70%,0);
+    opacity: 1;  
+}
+.credit-code-by,
+.credit-c {
+    transition: 0.5s;
+    -webkit-transition: 0.5s;
+}
+.credit-c {
+    width: 18px;
+    height: 24px;
+    padding-right: 0.21em;
+}
+.credit-name {
+    opacity: 0;
+    pointer-events: none;      
+}
+
+
+/*animations*/
+
+@keyframes FadeIn {
+    0% {
+        opacity: 0;       
+    }
+    100% {
+        opacity: 1;
+    }
+}
+@keyframes FadeIn-bottom{
+    0% {
+        opacity: 0;
+        transform:translateY(50px);        
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0px);
+    }
+}
+
+@keyframes location-rotate {
+    0% {
+        transform:  rotate(0deg);
+    }
+    75% {
+        transform:  rotate(360deg);
+    }
+    100% {
+        transform:  rotate(360deg);
+    }
+}

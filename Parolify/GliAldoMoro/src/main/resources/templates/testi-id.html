@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title th:text="${'Testo numero ' + {testi.id}}"></title>
+<link th:href="@{/css/testi.css}" rel="stylesheet" />
+<link th:href="@{/css/styles.css}" rel="stylesheet" />
+<title th:text="${'Parolify | Testo ' + {testi.id}}"></title>
+<link rel="icon" th:href="@{/img/parolfy.png}">
+</head>
+<body>
+	<h1 style="background-color: black; opacity: 0.6;">Testo completo</h1>
+	<p style="background-color: gray; opacity: 0.7;" class="card-text" th:text="${testi.txt}"></p>
+	<br>
+	<br>
+	<h2 style="text-align: center; font-size: 28px;" ><em>Frasi</em></h2>
+	<div th:each="frase : ${frasi}" style="text-align: center; ;">
+		<p style="background-color: black" th:text="${frase.id}"></p>
+		<p style="background-color: gray" th:text="${frase.contenuto}"></p>
+		<p style="background-color: black" th:text="${'Parola più utilizzata nella frase: ' + frase.parolaPiuUsataPerFrase}"></p>
+		<p style="background-color: gray" th:text="${'Parola più lunga nella frase: ' + frase.parolaPiuLungaPerFrase}"></p>
+		<br>
+	</div>
+</body>
+</html>
